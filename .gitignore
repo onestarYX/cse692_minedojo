@@ -124,3 +124,6 @@ debug_*
 *.swp
 
 .tabnine_root
+
+.vscode
+data/
