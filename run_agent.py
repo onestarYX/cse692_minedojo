@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     GOOGLE_API_KEY = "AIzaSyChmF0glFkgHwSatkXfFQIBEbaW8-PQCUE"
     gemini_model_name = "gemini-2.0-flash"
-    taskname = "easy-0-gpt-parsed"
+    taskname = "mg-nest-gpt-parsed"
     task = "tasks/"+taskname+".json"
     
 
