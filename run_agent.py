@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     GOOGLE_API_KEY = "AIzaSyChmF0glFkgHwSatkXfFQIBEbaW8-PQCUE"
     gemini_model_name = "gemini-2.0-flash"
-    taskname = "easy-5-gpt-parsed"
+    taskname = "easy-2-gpt-parsed"
     task = "tasks/"+taskname+".json"
     
 
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     env = minedojo.make(
         task_id="open-ended",
         generate_world_type='flat',
-        image_size=(width, height), 
+        image_size=(height, width), 
         start_position=dict(x=0,y=4,z=-10,yaw=0,pitch=0)
     )
     obs = env.reset()
@@ -89,8 +89,8 @@ if __name__ == "__main__":
         last_frame = frames[-1]
         frames = frames + [last_frame] * fps * 2
     
-        out_video_file = f"output/"+taskname+".mp4"
-        out = cv2.VideoWriter(out_video_file, cv2.VideoWriter_fourcc(*'mp4v'), fps, (width, height))
+        out_video_file = f"output/"+taskname+".avi"
+        out = cv2.VideoWriter(out_video_file, cv2.VideoWriter_fourcc(*'MJPG'), fps, (width, height))
 
         for frame in frames:
             out.write(frame)  # Each frame must be (H, W, 3) and dtype=uint8

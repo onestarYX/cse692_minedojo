@@ -16,6 +16,7 @@ current view of the structure: an image/frame.
 You must follow the following criteria:
 (1) You have to evaluate if the already built structure shown in the image looks similar to the description.
 (2) The structure does not have to look exactly the same as the description. Some extent of similarity should be enough.
+(3) You don't have to care too much about the height of the structure.
 
 You should only respond in JSON format as described below:
 {

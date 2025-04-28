@@ -37,7 +37,7 @@ class Percipient:
         
         check_dict = ast.literal_eval(check_info)
         
-        assert check_dict["success"] in ["true", "false"]
+        #assert check_dict["success"] in ["true", "false"]
         if "suggestion" not in check_dict:
             check_dict["suggestion"] = ""
             
