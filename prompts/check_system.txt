@@ -43,6 +43,6 @@ current view of the structure: an image/frame.
 RESPONSE:
 {
     "feedback": "Because the bottom layer should be empty inside, this structure isn't successfully built.",
-    "success": "false",
+    "success": "False",
     "suggestion": "You need to only build the wall on each of the four edges and leave the inside empty."
 }

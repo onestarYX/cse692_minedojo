@@ -19,7 +19,7 @@ class Percipient:
             structure_information=dict_to_prompt(sub_objective)
         )
         
-        downsample_rate = 2
+        downsample_rate = 1
         last_frame_downsampled = last_frame[0::downsample_rate,0::downsample_rate]
         last_frame_downsampled = cv2.cvtColor(last_frame_downsampled, cv2.COLOR_BGR2RGB)
         last_frame_downsampled = Image.fromarray(last_frame_downsampled)
@@ -30,20 +30,20 @@ class Percipient:
             last_frame_downsampled
         ]
         
-        last_frame_downsampled.save('last_frame_downsampled.png')
+        last_frame_downsampled.save(f"last_frame_downsampled_{downsample_rate}_times.png")
 
         check_info = self.model.generate_content(messages).text
         check_info = check_info[7:-3]
         
         check_dict = ast.literal_eval(check_info)
         
-        #assert check_dict["success"] in ["true", "false"]
+        assert check_dict["success"] in ["True", "False"]
         if "suggestion" not in check_dict:
             check_dict["suggestion"] = ""
             
         log_info(f"Check Result: {check_dict}")
         
-        if check_dict["success"]=="true":
+        if check_dict["success"]=="True":
             log_info("**********Sub-objective Success!**********")
         else:
             log_info("**********Sub-objective Failure!**********")

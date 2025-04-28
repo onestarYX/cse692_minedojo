@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     GOOGLE_API_KEY = "AIzaSyChmF0glFkgHwSatkXfFQIBEbaW8-PQCUE"
     gemini_model_name = "gemini-2.0-flash"
-    taskname = "easy-2-gpt-parsed"
+    taskname = "easy-5-gpt-parsed"
     task = "tasks/"+taskname+".json"
     
 
@@ -30,9 +30,11 @@ if __name__ == "__main__":
         frames = []
         sub_objective_list = json.load(f)
         for sub_objective in sub_objective_list:
+            y_offset = 4
+        
             log_info(f"sub_objective: {sub_objective['description']}")
             
-            every_sub_objective_max_retries = 2
+            every_sub_objective_max_retries = 1
             check_result = {}
             
             while every_sub_objective_max_retries >= 0:
@@ -48,8 +50,11 @@ if __name__ == "__main__":
                 actions = [first_entry] + actions + [last_entry]
                 for entry in actions:
                     args = entry['args']
-                    target_pos = np.array((args['x'], args['y']+4, args['z']), dtype=np.float32)
-                    block_type = args['block']
+                    target_pos = np.array((args['x'], args['y'] + y_offset, args['z']), dtype=np.float32)
+                    if entry['name'] == "setblock":
+                        block_type = args['block']
+                    else:
+                        block_type = 'air'
 
                     offset = 8
                     env.teleport_agent(-offset, 4 + offset * 2, -offset, -45, 45)
@@ -61,7 +66,7 @@ if __name__ == "__main__":
                 # Check the sub-objective result    
                 check_result = percipient.check_sub_objective_success(sub_objective=sub_objective, last_frame = frames[-1])
                 
-                if check_result["success"] == "true":
+                if check_result["success"] == "True":
                     # Success: Move to the next sub-objective
                     break
                 else: 
