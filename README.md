@@ -1,6 +1,6 @@
 # For CSE 692 Project
 Please run [run_agent.py](https://github.com/onestarYX/cse692_minedojo/blob/main/run_agent.py) in the root directory. Relevant scripts are in [run_agent.py](https://github.com/onestarYX/cse692_minedojo/blob/main/run_agent.py), 
-[utils.py](https://github.com/onestarYX/cse692_minedojo/blob/main/utils.py), [scripts/agent_util.py](https://github.com/onestarYX/cse692_minedojo/blob/main/scripts/agent_utils.py), 
+[utils.py](https://github.com/onestarYX/cse692_minedojo/blob/main/utils.py), [percipient.py](https://github.com/onestarYX/cse692_minedojo/blob/main/percipient.py), [planner.py](https://github.com/onestarYX/cse692_minedojo/blob/main/planner.py), [scripts/agent_util.py](https://github.com/onestarYX/cse692_minedojo/blob/main/scripts/agent_utils.py), 
 and [scripts/agent_work.py](https://github.com/onestarYX/cse692_minedojo/blob/main/scripts/agent_work.py).
 
 <div align="center">
